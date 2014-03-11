@@ -8,9 +8,147 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+<!-- CONTENT LABEL & FIELD -->
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+            
+                        <!-- CONTENT LABEL & FIELD -->
+            <TextView android:id="@+id/content_label" style="@style/inputLabel"
+                android:text="Body message"/>
+
+            <EditText
+                android:id="@+id/content_input"
+                style="@style/editText"
+                android:layout_height="200dip"
+                android:inputType="textMultiLine"
+                android:text="Your message here" />
+
+            <TableRow
+                android:id="@+id/tableRow1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <Button
+                    android:id="@+id/button1"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="1h" />
+
+                <Button
+                    android:id="@+id/button2"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="2h" />
+
+                <Button
+                    android:id="@+id/button3"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="4h" />
+
+            </TableRow>
+            <TableRow
+                android:id="@+id/tableRow1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <Button
+                    android:id="@+id/button1"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="6h" />
+
+                <Button
+                    android:id="@+id/button2"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="8h" />
+
+                <Button
+                    android:id="@+id/button3"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="12h" />
+
+            </TableRow>
+            <TableRow
+                android:id="@+id/tableRow1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <Button
+                    android:id="@+id/button1"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Demain" />
+
+                <Button
+                    android:id="@+id/button2"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="2j" />
+
+                <Button
+                    android:id="@+id/button3"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="1 de c 4" />
+
+            </TableRow>
+            <TableRow
+                android:id="@+id/tableRow1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <Button
+                    android:id="@+id/button1"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="date" />
+
+                <Button
+                    android:id="@+id/button3"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="..." />
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <EditText
+                    android:id="@+id/editText1"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="time" >
+
+                    <requestFocus />
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText2"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="date" />
+
+            </TableRow>
+            
+        </LinearLayout>
+    </ScrollView>
 
 </RelativeLayout>
