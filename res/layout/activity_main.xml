@@ -97,7 +97,7 @@
                     android:id="@+id/button7"
                     android:background="@drawable/roundedbutton"
                     android:layout_weight="1"
-                    android:textSize="30sp"
+                    android:textSize="26sp"
                     android:layout_height="50dip"
                     android:text="@string/day_option1"
                     android:layout_margin="10dip" />
@@ -106,7 +106,7 @@
                     android:id="@+id/button8"
                     android:background="@drawable/roundedbutton"
                     android:layout_weight="1"
-                    android:textSize="30sp"
+                    android:textSize="26sp"
                     android:layout_height="50dip"
                     android:text="@string/day_option2"
                     android:layout_margin="10dip" />
@@ -115,7 +115,7 @@
                     android:id="@+id/button9"
                     android:background="@drawable/roundedbutton"
                     android:layout_weight="1"
-                    android:textSize="30sp"
+                    android:textSize="26sp"
                     android:layout_height="50dip"
                     android:text="@string/day_option3"
                     android:layout_margin="10dip" />
