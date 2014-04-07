@@ -1,4 +1,4 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,9 +8,145 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
 
-</RelativeLayout>
+            <EditText
+                android:id="@+id/content_input"
+                style="@style/editText"
+                android:layout_height="200dip"
+                android:inputType="textMultiLine"
+                android:gravity="top"
+                android:hint="@string/message_hint" />
+
+
+            <TableRow
+                android:id="@+id/tableRow1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <Button
+                    android:id="@+id/button1"
+                    android:background="@drawable/roundedbutton"
+                    android:layout_weight="1"
+                    android:textSize="30sp"
+                    android:layout_height="50dip"
+                    android:text="@string/hour_option1"
+                    android:layout_margin="10dip" />
+
+                <Button
+                    android:id="@+id/button2"
+                    android:background="@drawable/roundedbutton"
+                    android:layout_weight="1"
+                    android:textSize="30sp"
+                    android:layout_height="50dip"
+                    android:text="@string/hour_option2"
+                    android:layout_margin="10dip" />
+
+                <Button
+                    android:id="@+id/button3"
+                    android:background="@drawable/roundedbutton"
+                    android:layout_weight="1"
+                    android:textSize="30sp"
+                    android:layout_height="50dip"
+                    android:text="@string/hour_option3"
+                    android:layout_margin="10dip" />
+
+            </TableRow>
+            <TableRow
+                android:id="@+id/tableRow2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <Button
+                    android:id="@+id/button4"
+                    android:background="@drawable/roundedbutton"
+                    android:layout_weight="1"
+                    android:textSize="30sp"
+                    android:layout_height="50dip"
+                    android:text="@string/hour_option4"
+                    android:layout_margin="10dip" />
+
+                <Button
+                    android:id="@+id/button5"
+                    android:background="@drawable/roundedbutton"
+                    android:layout_weight="1"
+                    android:textSize="30sp"
+                    android:layout_height="50dip"
+                    android:text="@string/hour_option5"
+                    android:layout_margin="10dip" />
+
+                <Button
+                    android:id="@+id/button6"
+                    android:background="@drawable/roundedbutton"
+                    android:layout_weight="1"
+                    android:textSize="30sp"
+                    android:layout_height="50dip"
+                    android:text="@string/hour_option6"
+                    android:layout_margin="10dip" />
+
+            </TableRow>
+            <TableRow
+                android:id="@+id/tableRow3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <Button
+                    android:id="@+id/button7"
+                    android:background="@drawable/roundedbutton"
+                    android:layout_weight="1"
+                    android:textSize="30sp"
+                    android:layout_height="50dip"
+                    android:text="@string/day_option1"
+                    android:layout_margin="10dip" />
+
+                <Button
+                    android:id="@+id/button8"
+                    android:background="@drawable/roundedbutton"
+                    android:layout_weight="1"
+                    android:textSize="30sp"
+                    android:layout_height="50dip"
+                    android:text="@string/day_option2"
+                    android:layout_margin="10dip" />
+
+                <Button
+                    android:id="@+id/button9"
+                    android:background="@drawable/roundedbutton"
+                    android:layout_weight="1"
+                    android:textSize="30sp"
+                    android:layout_height="50dip"
+                    android:text="@string/day_option3"
+                    android:layout_margin="10dip" />
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/button10"
+                    android:background="@drawable/roundedbutton"
+                    android:layout_weight="1"
+                    android:textSize="30sp"
+                    android:layout_height="50dip"
+                    android:text="@string/date"
+                    android:layout_margin="10dip" />
+
+                <Button
+                    android:id="@+id/button11"
+                    android:background="@drawable/roundedbutton"
+                    android:layout_weight="1"
+                    android:textSize="30sp"
+                    android:layout_height="50dip"
+                    android:text="@string/more_options"
+                    android:layout_margin="10dip" />
+
+            </TableRow>
+
+            
+        </LinearLayout>
+    </ScrollView>
