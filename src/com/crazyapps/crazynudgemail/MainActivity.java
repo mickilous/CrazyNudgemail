@@ -1,13 +1,22 @@
 package com.crazyapps.crazynudgemail;
 
+import static com.crazyapps.crazynudgemail.TimeUnit.DAYS;
+import static com.crazyapps.crazynudgemail.TimeUnit.HOURS;
 import android.app.Activity;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.EditText;
 
 public class MainActivity extends Activity {
+
+	private Typeface	font;
+	private EMailer		eMailer;
+	private EditText	editText;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -18,39 +27,61 @@ public class MainActivity extends Activity {
 
 		setContentView(R.layout.activity_main);
 
-		Typeface myTypeface = Typeface.createFromAsset(getAssets(), "fonts/Hand_Of_Sean_Demo.ttf");
-		Button b1 = (Button) findViewById(R.id.button1);
-		b1.setTypeface(myTypeface);
+		font = Typeface.createFromAsset(getAssets(), "fonts/Hand_Of_Sean_Demo.ttf");
 
-		Button b2 = (Button) findViewById(R.id.button2);
-		b2.setTypeface(myTypeface);
+		editText = (EditText) findViewById(R.id.content_input);
 
-		Button b3 = (Button) findViewById(R.id.button3);
-		b3.setTypeface(myTypeface);
+		eMailer = new EMailer(this);
 
-		Button b4 = (Button) findViewById(R.id.button4);
-		b4.setTypeface(myTypeface);
-
-		Button b5 = (Button) findViewById(R.id.button5);
-		b5.setTypeface(myTypeface);
-
-		Button b6 = (Button) findViewById(R.id.button6);
-		b6.setTypeface(myTypeface);
-
-		Button b7 = (Button) findViewById(R.id.button7);
-		b7.setTypeface(myTypeface);
-
-		Button b8 = (Button) findViewById(R.id.button8);
-		b8.setTypeface(myTypeface);
-
-		Button b9 = (Button) findViewById(R.id.button9);
-		b9.setTypeface(myTypeface);
+		defineButton(R.id.button1, 1, HOURS);
+		defineButton(R.id.button2, 2, HOURS);
+		defineButton(R.id.button3, 4, HOURS);
+		defineButton(R.id.button4, 6, HOURS);
+		defineButton(R.id.button5, 8, HOURS);
+		defineButton(R.id.button6, 12, HOURS);
+		defineButton(R.id.button7, 1, DAYS);
+		defineButton(R.id.button8, 2, DAYS);
+		defineButton(R.id.button9, 4, DAYS);
 
 		Button b10 = (Button) findViewById(R.id.button10);
-		b10.setTypeface(myTypeface);
+		b10.setTypeface(font);
 
-		Button b11 = (Button) findViewById(R.id.button11);
-		b11.setTypeface(myTypeface);
+		defineClearButton(R.id.button11);
+	}
+
+	private void defineClearButton(int id) {
+		Button b11 = (Button) findViewById(id);
+		b11.setTypeface(font);
+		b11.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				editText.setText("");
+			}
+		});
+	}
+
+	private void defineButton(int id, final int quantity, final TimeUnit unit) {
+		Button b = (Button) findViewById(id);
+		b.setTypeface(font);
+		b.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				String to = null;
+				switch (unit) {
+					case HOURS:
+						to = ToBuilder.hours(quantity);
+						break;
+					case DAYS:
+						to = ToBuilder.days(quantity);
+						break;
+				}
+				String message = editText.getText().toString();
+				String subject = message.substring(0, message.length() > 64 ? 64 : message.length());
+				eMailer.send(to, subject, message);
+			}
+		});
 	}
 
 	@Override
