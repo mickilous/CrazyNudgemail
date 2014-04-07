@@ -13,9 +13,9 @@
     <string name="hour_option5">8h</string>
     <string name="hour_option6">12h</string>
     
-    <string name="day_option1">1d</string>
-    <string name="day_option2">2d</string>
-    <string name="day_option3">4d</string>
+    <string name="day_option1">1day</string>
+    <string name="day_option2">2days</string>
+    <string name="day_option3">4days</string>
     
     <string name="date">Date</string>
     <string name="more_options">Reset</string>
