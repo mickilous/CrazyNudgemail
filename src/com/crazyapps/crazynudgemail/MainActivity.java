@@ -15,9 +15,10 @@ import android.widget.EditText;
 
 public class MainActivity extends Activity {
 
-	private Typeface	font;
-	private EMailer		eMailer;
-	private EditText	editText;
+	private static final int	SUBJECT_LENGTH	= 32;
+	private Typeface			font;
+	private EMailer				eMailer;
+	private EditText			editText;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -78,7 +79,8 @@ public class MainActivity extends Activity {
 						break;
 				}
 				String message = editText.getText().toString();
-				String subject = message.substring(0, message.length() > 64 ? 64 : message.length());
+				String subject = message.substring(0,
+						message.length() > SUBJECT_LENGTH ? SUBJECT_LENGTH : message.length());
 				eMailer.send(to, subject, message);
 			}
 		});
