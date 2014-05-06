@@ -13,7 +13,8 @@ public class ToBuilder {
 	}
 
 	public static String date(int year, int month, int day) {
-		return new StringBuilder().append(month).append(day).append(year).append(NUDGEMAIL_COM).toString();
+		return new StringBuilder().append(String.format("%02d", month)).append(String.format("%02d", day)).append(year)
+				.append(NUDGEMAIL_COM).toString();
 	}
 
 }
