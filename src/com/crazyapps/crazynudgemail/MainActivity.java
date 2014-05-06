@@ -2,6 +2,13 @@ package com.crazyapps.crazynudgemail;
 
 import static com.crazyapps.crazynudgemail.TimeUnit.DAYS;
 import static com.crazyapps.crazynudgemail.TimeUnit.HOURS;
+import static java.util.Calendar.DAY_OF_MONTH;
+import static java.util.Calendar.MONTH;
+import static java.util.Calendar.YEAR;
+
+import java.util.Calendar;
+import java.util.Date;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -12,10 +19,12 @@ import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
-	private static final int	SUBJECT_LENGTH	= 32;
+	private static final int	SUBJECT_LENGTH		= 32;
+	protected static final int	DATEPICKER_REQUEST	= 0;
 	private Typeface			font;
 	private EMailer				eMailer;
 	private EditText			editText;
@@ -78,11 +87,9 @@ public class MainActivity extends Activity {
 						to = ToBuilder.days(quantity);
 						break;
 				}
-				String message = editText.getText().toString();
-				String subject = message.substring(0,
-						message.length() > SUBJECT_LENGTH ? SUBJECT_LENGTH : message.length());
-				eMailer.send(to, subject, message);
+				sendMail(to);
 			}
+
 		});
 	}
 
@@ -93,9 +100,29 @@ public class MainActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				startActivity(new Intent(MainActivity.this, DatePickerActivity.class));
+				Intent datePickerIntent = new Intent(MainActivity.this, DatePickerActivity.class);
+				startActivityForResult(datePickerIntent, DATEPICKER_REQUEST);
 			}
 		});
+	}
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		if (requestCode == DATEPICKER_REQUEST) {
+			Date date = (Date) data.getSerializableExtra(DatePickerActivity.RESULT);
+			Toast toast = Toast.makeText(this, date.toString(), 2);
+			toast.show();
+			Calendar cal = Calendar.getInstance();
+			cal.setTime(date);
+			String to = ToBuilder.date(cal.get(YEAR), cal.get(MONTH), cal.get(DAY_OF_MONTH));
+			sendMail(to);
+		}
+	}
+
+	private void sendMail(String to) {
+		String message = editText.getText().toString();
+		String subject = message.substring(0, message.length() > SUBJECT_LENGTH ? SUBJECT_LENGTH : message.length());
+		eMailer.send(to, subject, message);
 	}
 
 	@Override

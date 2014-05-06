@@ -7,9 +7,11 @@ import java.util.Calendar;
 import java.util.Date;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.squareup.timessquare.CalendarPickerView;
+import com.squareup.timessquare.CalendarPickerView.OnDateSelectedListener;
 import com.squareup.timessquare.CalendarPickerView.SelectionMode;
 
 /**
@@ -18,6 +20,7 @@ import com.squareup.timessquare.CalendarPickerView.SelectionMode;
  */
 public class DatePickerActivity extends Activity {
 
+	public static final String	RESULT	= "RESULT";
 	private CalendarPickerView	calendar;
 
 	@Override
@@ -32,6 +35,25 @@ public class DatePickerActivity extends Activity {
 		calendar.init(new Date(), nextMonth.getTime()) //
 				.inMode(SelectionMode.SINGLE) //
 				.withSelectedDate(new Date());
+
+		calendar.setOnDateSelectedListener(new OnDateSelectedListener() {
+
+			@Override
+			public void onDateUnselected(Date date) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void onDateSelected(Date date) {
+
+				Intent returnIntent = new Intent();
+				returnIntent.putExtra(RESULT, date);
+				setResult(RESULT_OK, returnIntent);
+				finish();
+
+			}
+		});
 	}
 
 }
