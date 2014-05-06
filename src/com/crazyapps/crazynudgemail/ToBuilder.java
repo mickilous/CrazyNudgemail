@@ -5,7 +5,7 @@ public class ToBuilder {
 	private static final String	NUDGEMAIL_COM	= "@nudgemail.com";
 
 	public static String hours(int hours) {
-		return String.valueOf(hours).concat("m").concat(NUDGEMAIL_COM);
+		return String.valueOf(hours).concat("h").concat(NUDGEMAIL_COM);
 	}
 
 	public static String days(int days) {
