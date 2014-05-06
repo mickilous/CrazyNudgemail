@@ -3,6 +3,7 @@ package com.crazyapps.crazynudgemail;
 import static com.crazyapps.crazynudgemail.TimeUnit.DAYS;
 import static com.crazyapps.crazynudgemail.TimeUnit.HOURS;
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Menu;
@@ -43,8 +44,7 @@ public class MainActivity extends Activity {
 		defineButton(R.id.button8, 2, DAYS);
 		defineButton(R.id.button9, 4, DAYS);
 
-		Button b10 = (Button) findViewById(R.id.button10);
-		b10.setTypeface(font);
+		defineDateButton(R.id.button10);
 
 		defineClearButton(R.id.button11);
 	}
@@ -80,6 +80,18 @@ public class MainActivity extends Activity {
 				String message = editText.getText().toString();
 				String subject = message.substring(0, message.length() > 64 ? 64 : message.length());
 				eMailer.send(to, subject, message);
+			}
+		});
+	}
+
+	private void defineDateButton(int id) {
+		Button b = (Button) findViewById(id);
+		b.setTypeface(font);
+		b.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				startActivity(new Intent(MainActivity.this, DatePickerActivity.class));
 			}
 		});
 	}
