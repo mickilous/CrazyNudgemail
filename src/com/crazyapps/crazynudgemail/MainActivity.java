@@ -114,7 +114,7 @@ public class MainActivity extends Activity {
 			toast.show();
 			Calendar cal = Calendar.getInstance();
 			cal.setTime(date);
-			String to = ToBuilder.date(cal.get(YEAR), cal.get(MONTH), cal.get(DAY_OF_MONTH));
+			String to = ToBuilder.date(cal.get(YEAR), cal.get(MONTH) + 1, cal.get(DAY_OF_MONTH));
 			sendMail(to);
 		}
 	}

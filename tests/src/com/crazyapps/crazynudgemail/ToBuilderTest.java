@@ -14,7 +14,7 @@ public class ToBuilderTest extends TestCase {
 
 	public void testDate() {
 		assertEquals("11212010@nudgemail.com", ToBuilder.date(2010, 11, 21));
-		assertEquals("01022010@nudgemail.com", ToBuilder.date(2010, 1, 2));
+		assertEquals("02032010@nudgemail.com", ToBuilder.date(2010, 2, 3));
 	}
 
 }
