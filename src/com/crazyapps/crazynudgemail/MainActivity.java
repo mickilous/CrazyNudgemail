@@ -108,7 +108,7 @@ public class MainActivity extends Activity {
 
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		if (requestCode == DATEPICKER_REQUEST) {
+		if (requestCode == DATEPICKER_REQUEST && resultCode == RESULT_OK) {
 			Date date = (Date) data.getSerializableExtra(DatePickerActivity.RESULT);
 			Toast toast = Toast.makeText(this, date.toString(), 2);
 			toast.show();
