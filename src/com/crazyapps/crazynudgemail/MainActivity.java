@@ -33,7 +33,6 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		// Remove title bar
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 
 		setContentView(R.layout.activity_main);
@@ -60,9 +59,9 @@ public class MainActivity extends Activity {
 	}
 
 	private void defineClearButton(int id) {
-		Button b11 = (Button) findViewById(id);
-		b11.setTypeface(font);
-		b11.setOnClickListener(new OnClickListener() {
+		Button clearButton = (Button) findViewById(id);
+		clearButton.setTypeface(font);
+		clearButton.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
@@ -94,9 +93,9 @@ public class MainActivity extends Activity {
 	}
 
 	private void defineDateButton(int id) {
-		Button b = (Button) findViewById(id);
-		b.setTypeface(font);
-		b.setOnClickListener(new OnClickListener() {
+		Button dateButton = (Button) findViewById(id);
+		dateButton.setTypeface(font);
+		dateButton.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
@@ -108,10 +107,9 @@ public class MainActivity extends Activity {
 
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		if (requestCode == DATEPICKER_REQUEST && resultCode == RESULT_OK) {
+		if (DATEPICKER_REQUEST == requestCode && RESULT_OK == resultCode) {
 			Date date = (Date) data.getSerializableExtra(DatePickerActivity.RESULT);
-			Toast toast = Toast.makeText(this, date.toString(), 2);
-			toast.show();
+			toast(date);
 			Calendar cal = Calendar.getInstance();
 			cal.setTime(date);
 			String to = ToBuilder.date(cal.get(YEAR), cal.get(MONTH) + 1, cal.get(DAY_OF_MONTH));
@@ -132,4 +130,8 @@ public class MainActivity extends Activity {
 		return true;
 	}
 
+	private void toast(Date date) {
+		Toast toast = Toast.makeText(this, date.toString(), 2);
+		toast.show();
+	}
 }

@@ -28,6 +28,11 @@ public class DatePickerActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.date_view);
 
+		defineCalendar();
+
+	}
+
+	private void defineCalendar() {
 		final Calendar endDate = Calendar.getInstance();
 		endDate.add(Calendar.YEAR, 2);
 
@@ -40,18 +45,14 @@ public class DatePickerActivity extends Activity {
 
 			@Override
 			public void onDateUnselected(Date date) {
-				// TODO Auto-generated method stub
-
 			}
 
 			@Override
 			public void onDateSelected(Date date) {
-
 				Intent returnIntent = new Intent();
 				returnIntent.putExtra(RESULT, date);
 				setResult(RESULT_OK, returnIntent);
 				finish();
-
 			}
 		});
 	}
