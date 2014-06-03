@@ -28,11 +28,11 @@ public class DatePickerActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.date_view);
 
-		final Calendar nextMonth = Calendar.getInstance();
-		nextMonth.add(Calendar.MONTH, 1);
+		final Calendar endDate = Calendar.getInstance();
+		endDate.add(Calendar.YEAR, 2);
 
 		calendar = (CalendarPickerView) findViewById(R.id.calendar_view);
-		calendar.init(new Date(), nextMonth.getTime()) //
+		calendar.init(new Date(), endDate.getTime()) //
 				.inMode(SelectionMode.SINGLE) //
 				.withSelectedDate(new Date());
 
